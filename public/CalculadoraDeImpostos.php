@@ -1,5 +1,7 @@
 <?php
 
+require 'ICMS.php';
+require  'ISS.php';
 
 class CalculadoraDeImpostos
 {
@@ -7,9 +9,11 @@ class CalculadoraDeImpostos
     public function calcula(Orcamento $orcamento, string $tipo)
     {
         if ($tipo == 'ICMS') {
-            return $orcamento->getValor() * 0.05;
+            $icms = new ICMS();
+            return $icms->calcula($orcamento);
         } else if ($tipo == 'ISS') {
-            return $orcamento->getValor() * 0.1;
+            $iss = new ISS();
+            return $iss->calcula($orcamento);
         }
     }
 }
