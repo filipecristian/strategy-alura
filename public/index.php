@@ -7,8 +7,8 @@ $reforma = new Orcamento(500);
 
 $calculadoraDeImpostos = new CalculadoraDeImpostos();
 
-echo $calculadoraDeImpostos->calculaICMS($reforma);
+echo $calculadoraDeImpostos->calcula($reforma, 'ICMS');
 
 echo "<br>";
 
-echo $calculadoraDeImpostos->calculaISS($reforma);
+echo $calculadoraDeImpostos->calcula($reforma, 'ISS');
