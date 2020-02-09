@@ -10,6 +10,9 @@ class Orcamento
         $this->valor = $novoValor;
     }
 
+    /**
+     * @return float
+     */
     public function getValor()
     {
         return $this->valor;
