@@ -3,8 +3,8 @@
 
 class ISS implements Imposto
 {
-    public function calcula(Orcamento $orcamento): float
+    public function calcula(Orcamento $orcamento)
     {
-        return $orcamento->getValor() * 0.06;
+        return $orcamento->getValor() * 0.1;
     }
 }
