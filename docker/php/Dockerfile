@@ -25,21 +25,6 @@ RUN docker-php-ext-install \
         pcntl \
         opcache
 
-RUN pecl install -f apcu \
-    && echo 'extension=apcu.so' > /usr/local/etc/php/conf.d/30_apcu.ini
-
-RUN pecl install -f mongodb-1.6.1 \
-    && echo 'extension=mongodb.so' > /usr/local/etc/php/conf.d/30_mongodb.ini
-
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug && \
-    echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
-    echo "xdebug.remote_handler=dbgp" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
-    echo "xdebug.remote_mode=req" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
-    echo "xdebug.idekey=FIDC" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
-    echo "xdebug.remote_port=9097" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
-    echo "xdebug.remote_autostart=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
-    echo "xdebug.remote_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
 
 RUN chmod -R 755 /usr/local/lib/php/extensions/
 
